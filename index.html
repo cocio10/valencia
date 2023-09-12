@@ -179,10 +179,19 @@
     </div>
 
     <script>
-        function toggleDescription(id) {
-            var element = document.getElementById(id);
-            element.classList.toggle("active");
+        // Funzione per gestire il clic su un giorno
+        function toggleDescription(dayIndex) {
+            const description = document.querySelector(`#day${dayIndex} .description`);
+            description.classList.toggle("active");
         }
+
+        // Aggiungi event listener ai giorni
+        const days = document.querySelectorAll(".day");
+        days.forEach((day, index) => {
+            day.addEventListener("click", () => {
+                toggleDescription(index);
+            });
+        });
     </script>
 </body>
 </html>
